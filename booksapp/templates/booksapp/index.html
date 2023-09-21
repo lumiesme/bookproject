@@ -1,8 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+{% endfor %}
 	<h1>Homepage</h1>
     <p>
         Activities related to book. Select an action from menu.
     </p>
+
+    {% if user.is_authenticated %}
+        {{ redirect_to_login_immediately }}
+    	<span class="nav-link">Welcome {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></span>
+    {% else %}
+        <span class="nav-link">Welcome guest! <a href="{% url 'login' %}">Login</a></span>
+    {% endif %}
+
 {% endblock %}
