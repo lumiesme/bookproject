@@ -131,8 +131,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(seconds=500),
-    'SESSION_TIME': timedelta(seconds=10),
+    'IDLE_TIME': timedelta(seconds=10),
+    'SESSION_TIME': timedelta(seconds=5000),
     'MESSAGE': 'The session has expired. Please login again to continue.',
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
 }
